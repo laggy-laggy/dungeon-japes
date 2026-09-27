@@ -1,0 +1,14 @@
+node_modules/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+dist/
+data/
+campaign.json
+exports/
+*.sqlite
+*.sqlite3
+*.db
+roll20-chat-archive*.json
+page[0-9]*.json
+.env*
