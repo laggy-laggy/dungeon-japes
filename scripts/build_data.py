@@ -29,7 +29,7 @@ def campaign_title(db, config):
                           row[0], re.IGNORECASE | re.DOTALL)
         if match:
             return unescape(match.group(1)).strip()
-    return 'Roll20 Wrapped'
+    return 'Campaign Overview'
 
 
 def make_report(db, config):

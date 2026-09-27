@@ -218,7 +218,7 @@ function App(){
  const next=useCallback(()=>{if(stage<revealCount(slides[index]?.id)){setStage(s=>s+1);return}setStage(0);setIndex(i=>Math.min(i+1,slides.length-1))},[slides,index,stage,report]);
  const prev=useCallback(()=>{if(stage>0){setStage(s=>s-1);return}setStage(revealCount(slides[index-1]?.id));setIndex(i=>Math.max(0,i-1))},[slides,index,stage,report]);
  useEffect(()=>{const handle=(e:KeyboardEvent)=>{const node=e.target as HTMLElement;if(mode!=='story'||['INPUT','SELECT','TEXTAREA'].includes(node.tagName)||e.altKey||e.ctrlKey||e.metaKey)return;if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();next()}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}};window.addEventListener('keydown',handle);return()=>window.removeEventListener('keydown',handle)},[mode,next,prev]);
- useEffect(()=>{document.title=`${report?.meta.title||'Roll20'} · Wrapped`},[report]);
+ useEffect(()=>{if(report)document.title=report.meta.title},[report]);
  const chooseMode=(value:'story'|'explore')=>{setMode(value);history.replaceState(null,'',value==='explore'?'#explore':'#story')};
  if(error)return <div className="load-state"><h1>Unable to load the campaign data.</h1><p>{error}</p><p>Use <code>npm run dev</code> or serve the built <code>dist</code> folder locally.</p></div>;
  if(!report)return <div className="load-state">Opening the archive…</div>;

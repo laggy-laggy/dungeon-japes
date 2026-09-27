@@ -1,4 +1,4 @@
-# Roll20 Wrapped
+# Campaign Overview
 
 A locally hosted anniversary presentation plus a data explorer. The bundled example is **Dungeon Japes**. This repository includes the public report; import a Roll20 export locally to generate the full SQLite database.
 
